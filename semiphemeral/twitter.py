@@ -687,14 +687,11 @@ class Twitter(object):
                                     time.strftime("%b %d, %Y %l:%M%p %Z")
                                 )
                             )
-                            click.secho("Waiting 24 hours...", bold=True)
+                            click.secho("Waiting 30 minutes...", bold=True)
 
-                            for hours_left in list(range(1, 25))[::-1]:
-                                click.secho("{} hours left".format(hours_left))
-                                time.sleep(3600)
-
-                            click.secho("Waiting 2 more minutes, for good measure")
-                            time.sleep(120)
+                            for time_left in list(range(1, 31))[::-1]:
+                                click.secho("{} minute(s) left".format(time_left))
+                                time.sleep(60)
 
                 count += 1
 
@@ -703,6 +700,7 @@ class Twitter(object):
 
         self.common.session.commit()
         self.common.log("Reliked and unliked %s tweets" % count)
+        time.sleep(5)
 
     def delete_dms(self, filename):
         # Validate filename
