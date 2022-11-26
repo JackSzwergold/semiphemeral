@@ -700,7 +700,6 @@ class Twitter(object):
 
         self.common.session.commit()
         self.common.log("Reliked and unliked %s tweets" % count)
-        time.sleep(5)
 
     def delete_dms(self, filename):
         # Validate filename
